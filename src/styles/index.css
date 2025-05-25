@@ -20,9 +20,16 @@
   p {
     color: var(--color-dark-grayish-blue);
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-dark-blue);
+  }
   h1 {
     font-size: 48px;
     font-weight: bold;
-    color: var(--color-dark-blue);
   }
 }

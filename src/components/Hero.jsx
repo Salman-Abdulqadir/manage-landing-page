@@ -1,32 +1,21 @@
 import React from "react";
 import Button from "./ui/Button";
 import illustrationImg from "@images/illustration-intro.svg";
-import bgPattern from "@images/bg-tablet-pattern.svg";
+
 const Hero = () => {
   return (
-    <div className="flex items-center justify-between gap-4 flex-wrap-reverse min-h-[80vh] overflow-hidden">
-      <img
-        src={bgPattern}
-        alt="bg-pattern"
-        className="absolute -top-1/12 -right-1/12 md:-top-1/4 md:-right-1/8 -z-10"
-      />
-
-      <div className="space-y-6 text-center">
+    <div className="flex items-center justify-between space-x-8 flex-col-reverse md:flex-row min-h-[80vh] max-w-full *:flex-1">
+      <div className="space-y-6 text-center md:text-start mx-auto mb-8">
         <h1 className="relative leading-[48px] text-[38px] lg:leading-[56px] lg:text-[48px]">
-          Bring everyone <br /> together to build <br /> better products.
+          Bring everyone together to build better products.
         </h1>
         <p>
-          Manage makes It simple for sortware teams <br /> to plan day-to-day
-          tasks while keeping the <br /> larger team goals in view.
+          Manage makes It simple for sortware teams to plan day-to-day tasks
+          while keeping the larger team goals in view.
         </p>
         <Button>Get Started</Button>
-        <img
-          src={bgPattern}
-          alt="bg-pattern"
-          className="absolute -bottom-1/4 -right-1/2 -z-10 md:hidden"
-        />
       </div>
-      <div className="">
+      <div className="flex justify-end">
         <img src={illustrationImg} alt="Hero section illustration image" />
       </div>
     </div>
