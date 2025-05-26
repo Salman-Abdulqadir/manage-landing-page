@@ -15,7 +15,7 @@
     font-family: "Be Vietnam Pro", sans-serif;
     font-size: 16px;
     color: var(--color-very-dark-blue);
-    background-color: var(--color-light-gray);
+    /* background-color: var(--color-light-gray); */
   }
   p {
     color: var(--color-dark-grayish-blue);
@@ -26,6 +26,7 @@
   h4,
   h5,
   h6 {
+    font-weight: bold;
     color: var(--color-dark-blue);
   }
   h1 {

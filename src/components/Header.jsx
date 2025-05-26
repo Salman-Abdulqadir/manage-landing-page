@@ -36,7 +36,7 @@ const Header = () => {
     >
       <nav
         className={clsx(
-          "max-w-[1200px] flex items-center justify-between mx-auto",
+          "max-w-[1200px] flex items-center justify-between mx-auto px-4",
           isScrolled ? "min-h-[10vh]" : "min-h-[15vh]"
         )}
       >
@@ -55,7 +55,7 @@ const Header = () => {
         {isMenuOpen && (
           <div
             className={
-              "bg-black/25 fixed h-screen w-screen top-0 left-0 px-4 py-14 flex flex-col gap-4"
+              "bg-black/25 fixed h-screen w-screen top-0 left-0 px-4 py-10 flex flex-col gap-4"
             }
           >
             <button
