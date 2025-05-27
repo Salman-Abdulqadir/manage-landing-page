@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Button from "./ui/Button";
 import anishaAvatar from "@images/avatar-anisha.png";
 import aliAvatar from "@images/avatar-ali.png";
 import richardAvatar from "@images/avatar-richard.png";
 import shanaiAvatar from "@images/avatar-shanai.png";
 import { MoveLeft, MoveRight } from "lucide-react";
+import clsx from "clsx";
 
 const testimonials = [
   {
@@ -28,8 +29,22 @@ const testimonials = [
     avatar: shanaiAvatar,
   },
 ];
+
+const TestimonialCard = ({ item }) => {
+  return (
+    <div className="relative min-w-[400px] flex flex-col items-center space-y-3 bg-light-gray p-6 shadow-md">
+      <div className="h-18 w-18 absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <img src={item.avatar} alt={item.name} />
+      </div>
+      <h4 className="mt-8">{item.name}</h4>
+      <p>{JSON.stringify(item.comment)}</p>
+    </div>
+  );
+};
 const Testimonials = () => {
   const scrollRef = useRef();
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+
   const scroll = (direction) => {
     if (scrollRef.current) {
       const scrollAmount = 300;
@@ -49,13 +64,7 @@ const Testimonials = () => {
           className="hidden md:flex relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-x-hidden pb-4 pt-18 space-x-8"
         >
           {testimonials.map((item) => (
-            <div className="relative min-w-[400px] flex flex-col items-center space-y-3 bg-light-gray p-6 shadow-md">
-              <div className="h-18 w-18 absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <img src={item.avatar} alt={item.name} />
-              </div>
-              <h4 className="mt-8">{item.name}</h4>
-              <p>{JSON.stringify(item.comment)}</p>
-            </div>
+            <TestimonialCard key={item.name} item={item} />
           ))}
         </div>
         <div className="hidden md:flex justify-center gap-4">
@@ -67,6 +76,26 @@ const Testimonials = () => {
           </Button>
         </div>
       </>
+      <div className="space-y-4 flex flex-col items-center md:hidden mt-18">
+        <TestimonialCard item={testimonials[testimonialIndex]} />
+        <div className="flex items-center gap-3">
+          {Array(testimonials.length)
+            .fill(0)
+            .map((_, index) => {
+              const isActive = index === testimonialIndex;
+              return (
+                <div
+                  onClick={() => setTestimonialIndex(index)}
+                  key={index}
+                  className={clsx(
+                    "w-4 h-4 rounded-full border border-bright-orange cursor-pointer",
+                    isActive ? "bg-bright-orange" : ""
+                  )}
+                />
+              );
+            })}
+        </div>
+      </div>
       <Button>Get Started</Button>
     </div>
   );
